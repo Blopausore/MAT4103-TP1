@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.1.17)  5 MAR 2024 18:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.1.17)  5 MAR 2024 20:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -672,7 +672,14 @@ Package csquotes Info: Redefining alias 'default' -> 'french'.
 LaTeX Warning: Unused global option(s):
     [18pt].
 
-(./rapport.aux)
+(./rapport.aux
+
+LaTeX Warning: Label `fig:mnist_kmeans_entropy' multiply defined.
+
+
+LaTeX Warning: Label `fig:mnist_kmeans_entropy' multiply defined.
+
+)
 \openout1 = `rapport.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
@@ -785,7 +792,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count473
-<images/logo-tsp-fond-blanc.png, id=56, 384.43625pt x 602.25pt>
+<images/logo-tsp-fond-blanc.png, id=80, 384.43625pt x 602.25pt>
 File: images/logo-tsp-fond-blanc.png Graphic file (type png)
 <use images/logo-tsp-fond-blanc.png>
 Package pdftex.def Info: images/logo-tsp-fond-blanc.png  used on input line 26.
@@ -797,12 +804,12 @@ Overfull \hbox (3.97116pt too wide) in paragraph at lines 42--47
 []\T1/cmr/m/n/10 Pour faire ceci, nous al-lons uti-li-ser le jeu de don-nées MNIST
  []
 
-<images/mnist_plot.png, id=69, 462.528pt x 346.896pt>
+<images/mnist_plot.png, id=93, 462.528pt x 346.896pt>
 File: images/mnist_plot.png Graphic file (type png)
 <use images/mnist_plot.png>
 Package pdftex.def Info: images/mnist_plot.png  used on input line 58.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
-<images/short_simulation_generate_data.png, id=70, 462.528pt x 346.896pt>
+<images/short_simulation_generate_data.png, id=94, 462.528pt x 346.896pt>
 File: images/short_simulation_generate_data.png Graphic file (type png)
 <use images/short_simulation_generate_data.png>
 Package pdftex.def Info: images/short_simulation_generate_data.png  used on input line 69.
@@ -810,7 +817,7 @@ Package pdftex.def Info: images/short_simulation_generate_data.png  used on inpu
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/short_simulation_kmeans.png, id=71, 462.528pt x 346.896pt>
+<images/short_simulation_kmeans.png, id=95, 462.528pt x 346.896pt>
 File: images/short_simulation_kmeans.png Graphic file (type png)
 <use images/short_simulation_kmeans.png>
 Package pdftex.def Info: images/short_simulation_kmeans.png  used on input line 90.
@@ -818,7 +825,7 @@ Package pdftex.def Info: images/short_simulation_kmeans.png  used on input line 
 [2
 
  <./images/mnist_plot.png> <./images/short_simulation_generate_data.png> <./images/short_simulation_kmeans.png>]
-<images/short_simulation_kmedoids.png, id=92, 462.528pt x 346.896pt>
+<images/short_simulation_kmedoids.png, id=116, 462.528pt x 346.896pt>
 File: images/short_simulation_kmedoids.png Graphic file (type png)
 <use images/short_simulation_kmedoids.png>
 Package pdftex.def Info: images/short_simulation_kmedoids.png  used on input line 128.
@@ -828,88 +835,145 @@ Overfull \hbox (0.39056pt too wide) in paragraph at lines 134--136
 \T1/cmr/m/n/10 mé-lange de dis-tri-bu-tions gaus-siennes. L'al-go-rithme fonc-tionne
  []
 
-<images/short_simulation_gmm.png, id=93, 578.16pt x 433.62pt>
+<images/short_simulation_gmm.png, id=117, 578.16pt x 433.62pt>
 File: images/short_simulation_gmm.png Graphic file (type png)
 <use images/short_simulation_gmm.png>
 Package pdftex.def Info: images/short_simulation_gmm.png  used on input line 146.
 (pdftex.def)             Requested size: 173.44933pt x 130.087pt.
-<images/short_simulation_dbscan.png, id=94, 462.528pt x 346.896pt>
+<images/short_simulation_dbscan.png, id=118, 462.528pt x 346.896pt>
 File: images/short_simulation_dbscan.png Graphic file (type png)
 <use images/short_simulation_dbscan.png>
 Package pdftex.def Info: images/short_simulation_dbscan.png  used on input line 165.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
 [3 <./images/short_simulation_kmedoids.png> <./images/short_simulation_gmm.png> <./images/short_simulation_dbscan.png>]
-<images/mnist_kmeans_ten_clusters.png, id=125, 907.7112pt x 364.2408pt>
+<images/mnist_kmeans_ten_clusters.png, id=149, 907.7112pt x 364.2408pt>
 File: images/mnist_kmeans_ten_clusters.png Graphic file (type png)
 <use images/mnist_kmeans_ten_clusters.png>
 Package pdftex.def Info: images/mnist_kmeans_ten_clusters.png  used on input line 198.
 (pdftex.def)             Requested size: 226.92725pt x 91.05997pt.
-
-Overfull \hbox (1.37952pt too wide) in paragraph at lines 206--206
-[]\T1/cmr/bx/n/10 Étude des per-for-mances en fonc-tion du nombre
- []
-
-<images/mnist_kmeans_inertia.png, id=127, 499.3857pt x 278.9622pt>
+<images/mnist_kmeans_inertia.png, id=151, 499.3857pt x 278.9622pt>
 File: images/mnist_kmeans_inertia.png Graphic file (type png)
 <use images/mnist_kmeans_inertia.png>
 Package pdftex.def Info: images/mnist_kmeans_inertia.png  used on input line 214.
 (pdftex.def)             Requested size: 199.75073pt x 111.5829pt.
-<images/mnist_kmeans_silhouette.png, id=128, 511.6716pt x 268.1217pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<images/mnist_kmeans_silhouette.png, id=152, 511.6716pt x 268.1217pt>
 File: images/mnist_kmeans_silhouette.png Graphic file (type png)
 <use images/mnist_kmeans_silhouette.png>
 Package pdftex.def Info: images/mnist_kmeans_silhouette.png  used on input line 249.
 (pdftex.def)             Requested size: 204.66501pt x 107.24678pt.
-
-Overfull \hbox (1.37952pt too wide) in paragraph at lines 259--259
-[]\T1/cmr/bx/n/10 Étude des per-for-mances en fonc-tion du nombre
- []
-
 [4 <./images/mnist_kmeans_ten_clusters.png> <./images/mnist_kmeans_inertia.png> <./images/mnist_kmeans_silhouette.png>]
 
 Package caption Warning: \captionsetup{type*=...} or \captionof
-(caption)                outside box or environment on input line 281.
+(caption)                outside box or environment on input line 283.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 281.
+(caption)                particular \caption on input line 283.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 309.
+(caption)                particular \caption on input line 312.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (138.31099pt too wide) detected at line 315
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 319.
+See the caption package documentation for explanation.
+
+<images/mnist_kmeans_inferred_labels.png, id=167, 1134.639pt x 166.9437pt>
+File: images/mnist_kmeans_inferred_labels.png Graphic file (type png)
+<use images/mnist_kmeans_inferred_labels.png>
+Package pdftex.def Info: images/mnist_kmeans_inferred_labels.png  used on input line 362.
+(pdftex.def)             Requested size: 226.92378pt x 33.38814pt.
+
+Overfull \hbox (138.31099pt too wide) detected at line 377
 []
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 316.
+(caption)                particular \caption on input line 378.
 See the caption package documentation for explanation.
 
-[5] (./rapport.aux)
+<images/mnist_kmeans_low_entropy_cluster.png, id=170, 417.2388pt x 226.9278pt>
+File: images/mnist_kmeans_low_entropy_cluster.png Graphic file (type png)
+<use images/mnist_kmeans_low_entropy_cluster.png>
+Package pdftex.def Info: images/mnist_kmeans_low_entropy_cluster.png  used on input line 389.
+(pdftex.def)             Requested size: 125.17259pt x 68.07886pt.
+<images/mnist_kmeans_confusion_high_entropy_cluster.png, id=171, 417.2388pt x 226.9278pt>
+File: images/mnist_kmeans_confusion_high_entropy_cluster.png Graphic file (type png)
+<use images/mnist_kmeans_confusion_high_entropy_cluster.png>
+Package pdftex.def Info: images/mnist_kmeans_confusion_high_entropy_cluster.png  used on input line 400.
+(pdftex.def)             Requested size: 125.17259pt x 68.07886pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[5 <./images/mnist_kmeans_inferred_labels.png> <./images/mnist_kmeans_low_entropy_cluster.png>]
+<images/mnist_kmeans_high_entropy_cluster.png, id=187, 417.2388pt x 226.9278pt>
+File: images/mnist_kmeans_high_entropy_cluster.png Graphic file (type png)
+<use images/mnist_kmeans_high_entropy_cluster.png>
+Package pdftex.def Info: images/mnist_kmeans_high_entropy_cluster.png  used on input line 410.
+(pdftex.def)             Requested size: 125.17259pt x 68.07886pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 432.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (46.64395pt too wide) detected at line 440
+[]
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 441.
+See the caption package documentation for explanation.
+
+<images/mnist_kmeans_inferred_labels_ten_clusters.png, id=188, 1138.2525pt x 125.0271pt>
+File: images/mnist_kmeans_inferred_labels_ten_clusters.png Graphic file (type png)
+<use images/mnist_kmeans_inferred_labels_ten_clusters.png>
+Package pdftex.def Info: images/mnist_kmeans_inferred_labels_ten_clusters.png  used on input line 450.
+(pdftex.def)             Requested size: 227.64647pt x 25.00496pt.
+
+Underfull \hbox (badness 1975) in paragraph at lines 463--463
+[]\T1/cmr/bx/n/10 Exploitation des ou-tils pour l'ana-lyse du
+ []
+
+<images/mnist_kmeans_good_distribution.png, id=189, 495.7722pt x 271.0125pt>
+File: images/mnist_kmeans_good_distribution.png Graphic file (type png)
+<use images/mnist_kmeans_good_distribution.png>
+Package pdftex.def Info: images/mnist_kmeans_good_distribution.png  used on input line 469.
+(pdftex.def)             Requested size: 198.30536pt x 108.40306pt.
+[6 <./images/mnist_kmeans_confusion_high_entropy_cluster.png> <./images/mnist_kmeans_high_entropy_cluster.png> <./images/mnist_kmeans_inferred_labels_ten_clusters.png> <./images/mnist_kmeans_good_distribution.png>] (./rapport.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 125EC1F258F579DBF83745034AA85ECE;2607.
+(rerunfilecheck)             Checksum: 2BF6C650F97CDF9CD9F024DBA6DEDB87;4580.
 Package logreq Info: Writing requests to 'rapport.run.xml'.
 \openout1 = `rapport.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 23178 strings out of 478287
- 403662 string characters out of 5849289
- 1169733 words of memory out of 5000000
- 41053 multiletter control sequences out of 15000+600000
+ 23245 strings out of 478287
+ 406159 string characters out of 5849289
+ 1179061 words of memory out of 5000000
+ 41099 multiletter control sequences out of 15000+600000
  479186 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,8n,117p,764b,1726s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,8n,117p,764b,1728s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb>
-Output written on rapport.pdf (5 pages, 535272 bytes).
+Output written on rapport.pdf (6 pages, 1859988 bytes).
 PDF statistics:
- 226 PDF objects out of 1000 (max. 8388607)
- 171 compressed objects within 2 object streams
- 57 named destinations out of 1000 (max. 500000)
- 155 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 280 PDF objects out of 1000 (max. 8388607)
+ 211 compressed objects within 3 object streams
+ 72 named destinations out of 1000 (max. 500000)
+ 233 words of extra memory for PDF output out of 10000 (max. 10000000)
 

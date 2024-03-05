@@ -169,8 +169,8 @@ Résultat de l'algorithme sur le jeu de données précédent.
 On remarque ici que certains points ne sont pas assignés à un cluster, ce sont les points de bruit.
 
 \pagebreak
-\section{Application sur la base de données MNIST}
-\subsection{K-means}
+\section{Étude de K-Means sur la base de données MNIST}
+
 
 Afin de baisser le temps de calcul, on ne va étudier que les 10 000 premières images de la base de données MNIST.
 On aura donc 10 clusters contenant chacun : 
@@ -187,7 +187,7 @@ On aura donc 10 clusters contenant chacun :
     \item label 9 : 978 images
 \end{itemize}
 
-\subsubsection{Étude pour 10 clusters}
+\subsection{Étude pour 10 clusters}
 
 On clusterise les images en utilisant les pixels comme features et on recherche 10 clusters.
 Cela nous permet d'avoir une première visualisation des résultats de l'algorithme pour un nombre 
@@ -203,9 +203,9 @@ On remarque ici que malgré la présence de 10 clusters, on ne retrouve pas les 
 En effet, deux clusters semblent décrirent le chiffre 0 et trois autres sont flous quant à leur description des chiffres 4 et 9.
 Enfin les clusters sont très hétérogènes, ce qui est cohérent avec la diversité des écritures des chiffres.
 
-\subsubsection{Étude des performances en fonction du nombre clusters : méthode usuelle}
+\subsection{Étude des performances en fonction du nombre clusters : méthode usuelle}
 
-\paragraph{Fonction de coût}
+\subsubsection{Fonction de coût}
 On peut étudier la fonction de coût[\ref{eq:kmeans_cost}] par rapport au nombre de clusters.
 Ici on a tracé la fonction de coût pour un nombre de clusters allant de 2 à 20.
 
@@ -256,9 +256,11 @@ elle n'est pas représentative de la qualité des clusters.
 On va donc plutôt regarder le nombre suivant de clusters pour lequel l'indice de silhouette est maximal. 
 Dans ce cas, le \textbf{nombre de cluster optimal est 7}.
 
-\subsubsection{Étude des performances en fonction du nombre clusters : méthode alternative}
+\subsection{Étude des performances en fonction du nombre clusters : méthode alternative}
 
-\paragraph{Matrice de confusion}
+On viendra faire cette étude en prenant 7 cluster pour les raisons évoquées précédemment.
+
+\subsubsection{Matrice de confusion} 
 On peut aussi étudier la matrice de confusion pour chaque nombre de clusters.
 Celle ci représente pour la ligne $i$ et la colonne $j$, le nombre de point de label $i$ qui sont dans le cluster $j$.
 
@@ -281,7 +283,8 @@ Pour le choix de 7 clusters, on obtient une matrice de taille 10x7.
 \captionof{table}{Matrice de confusion pour 7 clusters}
 
 
-\paragraph{Analyse par colonne}
+\subsubsection{Analyse par colonne} 
+
 Chaque colonne représente un cluster.
 
 Une colonne possèdant des valeurs hétérogènes est un bon cluster car il permet de distinguer les différents labels.
@@ -310,7 +313,7 @@ On étudie la variance normalisée par colonne car une variance élevée corresp
 
 \[
 \begin{pmatrix}
-    0.07749849 & 0.01621322 & 0.05849614 & 0.02084102 & 0.02251254 & 0.01238162 & 0.06155192
+    0.078 & 0.016 & 0.058 & 0.021 & 0.022 & 0.012 & 0.061
 \end{pmatrix}
 \]
 \captionof{table}{Variance de chaque colonne normalisée}
@@ -326,7 +329,7 @@ alors que l'analyse de la matrice de confusion nous montre que ce cluster est bi
 L'analyse par la variance normalisée n'est donc pas suffisante pour déterminer la qualité des clusters mais 
 elle en donne une idée.
 
-\paragraph{Analyse par ligne}
+\paragraph{Analyse par ligne} 
 Chaque ligne représente un label.
 
 De la même manière, on cherche une répartition hétérogène des valeurs pour chaque ligne
@@ -337,11 +340,136 @@ Ceci nous conduirait à remarquer que les labels 0 et 1 sont bien identifiés
 par les clusters 0 et 3.
 Tandis qu'il y une confusion dans l'identification des labels 4 et 9 par les différents clusters.
 
-\paragraph{Analyse des labels majoritaires par cluster}
+\paragraph{Analyse des labels majoritaires par cluster} 
+
+On peut aussi étudier les labels majoritaires pour chaque cluster 
+et les comparer à la présence de ces labels dans les autres clusters.
+
+Ainsi le 0 est bien identifié par le cluster 0 car il est largement majoritaire celui ci 
+et les autres clusters le contiennent peu.
+
+Néanmoins, le 4 est majoritaire dans le cluster 1 mais il est aussi très présent dans le cluster 2,
+deux clusters qui ne sont pas très hétérogènes.
+On peut donc en déduire que le 4 est mal identifié par ces clusters.
+
+\subsubsection{Attribution de Labels Dominants aux Clusters}
+
+On a associé l'étiquette la plus probable à chaque cluster dans le modèle KMeans.
+On a ensuite comparé ces étiquettes avec les étiquettes réelles des données pour chaque cluster.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.2]{images/mnist_kmeans_inferred_labels.png}
+    \caption{Attribution de Labels Dominants aux Clusters}\label{fig:mnist_kmeans_labels}
+\end{figure}
+
+On remarque une confusion entre les chiffres 7 et 9 ainsi qu'entre 4 et 9.
+Sinon les clusters semblent bien représenter les chiffres.
+
+\subsubsection{Étude par métrique d'entropie}
+
+On a calculé l'entropie pour chaque cluster vu à la figure \ref{fig:mnist_kmeans_labels}.
+
+\[
+\begin{pmatrix}
+    7.43838353 & 7.66575343 & 7.12447826 & 7.36581284 & 6.77193556 & 6.90775528 & 7.29301768
+\end{pmatrix}
+\]
+\captionof{table}{Entropie par cluster}
+
+On obtient une moyenne d'entropie de 7.224.
+
+Une entropie faible indique que les points dans le cluster sont relativement bien concentrés autour d'un certain centre.
+
+Ainsi les clusters 4 et 5 possèdent une entropie faible, la disparité des points dans ces clusters est faible
+et en effet on remarque sur la figure \ref{fig:mnist_kmeans_labels} que les chiffres sont bien identifiés par ces clusters. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.3]{images/mnist_kmeans_low_entropy_cluster.png}
+    \caption{Entropie par cluster}\label{fig:mnist_kmeans_entropy}
+\end{figure}
+
+
+Une entropie élevée indique que les points dans le cluster sont répartis de manière plus éparse ou désordonnée.
+On remarque une entropie très élevée pour les clusters 0 et 6, un résultat cohérent 
+avec l'analyse de l'attribution des labels dominants dans laquel on remarquer une confusion entre les chiffres 4, 7 et 9.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.3]{images/mnist_kmeans_confusion_high_entropy_cluster.png}
+    \caption{Entropie par cluster}\label{fig:mnist_kmeans_entropy}
+\end{figure}
+
+Le cluster 1 possède l'entropie la plus élevée tout en ayant une attribution de label dominant cohérente.
+Cela doit être dû à la présence d'une barre centrale dans la plupart des chiffres ce qui explique 
+son entropie élevée mais étant assez distinct des autres chiffres, il est bien identifié par le cluster 1.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.3]{images/mnist_kmeans_high_entropy_cluster.png}
+    \caption{Entropie par cluster}\label{fig:mnist_kmeans_entropy}
+\end{figure}
+
+\subsection{Comparaison des résultats de méthode alternative avec un nombre différent de clusters}
+
+\subsubsection{Comparaison pour 10 clusters}
+\paragraph{Matrice de confusion}
+\[
+\begin{bmatrix}
+    1 & 14 & 2 & 26 & 1 & 185 & 49 & 1 & 720 & 2 \\
+    3 & 1 & 1106 & 1 & 2 & 0 & 2 & 1 & 0 & 11 \\
+    20 & 23 & 172 & 29 & 656 & 20 & 55 & 5 & 6 & 5 \\
+    55 & 12 & 63 & 4 & 14 & 312 & 526 & 12 & 3 & 31 \\
+    1 & 391 & 41 & 18 & 3 & 0 & 1 & 281 & 0 & 244 \\
+    69 & 23 & 186 & 16 & 1 & 204 & 237 & 49 & 8 & 70 \\
+    1 & 100 & 90 & 781 & 7 & 18 & 5 & 0 & 12 & 0 \\
+    3 & 98 & 60 & 0 & 4 & 2 & 2 & 447 & 1 & 453 \\
+    525 & 21 & 100 & 17 & 7 & 22 & 199 & 24 & 3 & 26 \\
+    4 & 242 & 18 & 3 & 0 & 0 & 16 & 298 & 6 & 391 \\
+\end{bmatrix}
+\]
+\captionof{table}{Matrice de confusion pour 10 clusters}
+
+On obtient une variance normalisée semblable à celle obtenue pour 7 clusters.
+
+\[
+\begin{pmatrix}
+    0.051 & 0.017 & 0.029 & 0.066 & 0.079 & 0.02 & 0.022 & 0.02 & 0.08 & 0.018
+\end{pmatrix}
+\]
+\captionof{table}{Variance de chaque colonne normalisée}
+
+Encore une fois l'homogénéité des clusters est diversifiée.
+On retrouve des variances parfois élevées signe d'hétérogénéité et parfois faibles signe d'homogénéité.
+
+\paragraph{Attribution de Labels Dominants aux Clusters}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.2]{images/mnist_kmeans_inferred_labels_ten_clusters.png}
+    \caption{Attribution de Labels Dominants aux Clusters}\label{fig:mnist_kmeans_labels_ten}
+\end{figure}
+
+On retrouve comme avant de la confusion pour certains labels comme celui du 3 et du 8 ainsi que 4, 7 et 9
+comme lorsque l'on avait 7 clusters.
 
 
 
-\subsection{K-medoids}
+
+
+
+
+\subsubsection{Exploitation des outils pour l'analyse du nombre de clusters}
+
+On a calculé le taux de bon fonctionnement de l'algorithme KMeans pour un nombre de clusters allant de 2 à 15.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.4]{images/mnist_kmeans_good_distribution.png}
+    \caption{Taux de bon fonctionnement de l'algorithme KMeans}\label{fig:mnist_kmeans_score}
+\end{figure}
+On remarque que le taux de bon fonctionnement en fonction du nombre de cluster est croissant.
 
 
 
