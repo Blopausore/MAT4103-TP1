@@ -9,6 +9,7 @@
 \usepackage{amsmath}
 \usepackage{multicol} % Package for multi-column layout
 \usepackage[french]{babel}
+\usepackage{caption} % for \captionof command
 
 \usepackage{listings}
 
@@ -94,7 +95,20 @@ On remarque la fusion des deux clusters les plus proches ce qui est cohérent
 étant données que l'on cherche 4 clusters dans un ensemble de données regroupés en 5 clusters.
 On verra que cette remarque s'appliquera à tous les algorithmes.
 
+\paragraph{Fonction de coût}
+La fonction de coût utilisée par l'algorithme prend en compte la distance entre les points et les centres des clusters.
+Elle est aussi appelée "inertie" et est définie comme suit :
+\begin{equation}
+    J = \sum_{i=1}^{n} \sum_{k=1}^{K} 1\{c_{i} = k\} ||x_{i} - \mu_k||^2
+    \label{eq:kmeans_cost}
+\end{equation}
 
+Avec :
+\begin{itemize}
+    \item $n$ le nombre de points de données
+    \item $K$ le nombre de clusters
+    \item $c_{i}$ le cluster auquel le point de données $x_{i}$ est assigné
+\end{itemize}
 \subsubsection{K-medoids}
 
 L'algorithme K-medoids est une variante de l'algorithme K-means. 
@@ -189,7 +203,81 @@ On remarque ici que malgré la présence de 10 clusters, on ne retrouve pas les 
 En effet, deux clusters semblent décrirent le chiffre 0 et trois autres sont flous quant à leur description des chiffres 4 et 9.
 Enfin les clusters sont très hétérogènes, ce qui est cohérent avec la diversité des écritures des chiffres.
 
-\subsubsection{Étude des performances en fonction du nombre clusters}
+\subsubsection{Étude des performances en fonction du nombre clusters : méthode usuelle}
+
+\paragraph{Fonction de coût}
+On peut étudier la fonction de coût[\ref{eq:kmeans_cost}] par rapport au nombre de clusters.
+Ici on a tracé la fonction de coût pour un nombre de clusters allant de 2 à 20.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.4]{images/mnist_kmeans_inertia.png}
+    \caption{Fonction de coût en fonction du nombre de clusters}\label{fig:mnist_kmeans_cost}
+\end{figure}
+
+Il est totalement cohérent que la fonction soit décroissante en fonction du nombre de clusters.
+En effet, plus on a de clusters, plus on peut réduire la distance entre les points et les centres des clusters.
+
+\textbf{La méthode du coude} consiste à choisir le nombre de clusters qui correspond à l'endroit où la fonction de coût commence à décroître plus lentement.
+Ce choix permet de déterminer le nombre optimal de clusters.
+
+Dans ce cas, la courbe ne présente pas de coude net. Elle ne permet donc pas de déterminer clairement le nombre de clusters optimal.
+
+\paragraph{Indice de silhouette}
+
+L'indice de silhouette est une mesure de la qualité des clusters.
+Il est défini comme suit :
+\begin{equation}
+    s(i) = \frac{b(i) - a(i)}{max(a(i), b(i))}
+    \label{eq:silhouette_i}
+\end{equation}
+
+Avec :
+\begin{itemize}
+    \item $a(i)$ la distance moyenne entre le point $i$ et les autres points du même cluster
+    \item $b(i)$ la distance moyenne entre le point $i$ et les points du cluster le plus proche
+    \item $s(i)$ l'indice de silhouette du point $i$
+\end{itemize}
+
+On peut caluler la moyenne groupée par cluster de l'indice de silhouette pour chaque nombre de clusters.
+Cela nous permet d'estimer l'homogénéité et la séparation des clusters.
+
+On a tracé la moyenne de l'indice de silhouette pour un nombre de clusters allant de 2 à 12.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.4]{images/mnist_kmeans_silhouette.png}
+    \caption{Indice de silhouette en fonction du nombre de clusters}\label{fig:mnist_kmeans_silhouette}
+\end{figure}
+
+On remarque que l'indice de silhouette est maximal pour 2 clusters. 
+Cependant on ne va pas prendre cette mesure en compte car en séparant simplement l'espace en deux, 
+elle n'est pas représentative de la qualité des clusters. 
+On va donc plutôt regarder le nombre suivant de clusters pour lequel l'indice de silhouette est maximal. 
+Dans ce cas, le \textbf{nombre de cluster optimal est 7}.
+
+\subsubsection{Étude des performances en fonction du nombre clusters : méthode alternative}
+
+\paragraph{Matrice de confusion}
+On peut aussi étudier la matrice de confusion pour chaque nombre de clusters.
+Celle ci représente pour la ligne $i$ et la colonne $j$, le nombre de point de label $i$ qui sont dans le cluster $j$.
+\[
+\begin{bmatrix}
+  812 & 14 & 1 & 4 & 61 & 71 & 38 & 0 & 0 & 0 \\
+  0 & 2 & 3 & 1109 & 4 & 9 & 0 & 0 & 0 & 0 \\
+  9 & 27 & 6 & 213 & 60 & 627 & 49 & 0 & 0 & 0 \\
+  6 & 29 & 19 & 89 & 736 & 142 & 11 & 0 & 0 & 0 \\
+  1 & 524 & 366 & 63 & 0 & 5 & 21 & 0 & 0 & 0 \\
+  13 & 63 & 124 & 236 & 368 & 33 & 26 & 0 & 0 & 0 \\
+  16 & 24 & 0 & 114 & 6 & 15 & 839 & 0 & 0 & 0 \\
+  1 & 325 & 646 & 91 & 1 & 5 & 1 & 0 & 0 & 0 \\
+  3 & 25 & 68 & 172 & 333 & 326 & 17 & 0 & 0 & 0 \\
+  5 & 437 & 477 & 38 & 17 & 2 & 2 & 0 & 0 & 0 \\
+\end{bmatrix}
+\]
+\captionof{table}{Matrice de confusion pour 7 clusters}
+
+
 
 
 \subsection{K-medoids}

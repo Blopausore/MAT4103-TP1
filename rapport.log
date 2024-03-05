@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.1.17)  5 MAR 2024 14:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.1.17)  5 MAR 2024 16:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -624,23 +624,40 @@ Package babel Info: Making ? an active character on input line 433.
 \leftmarginFB=\dimen181
 \parindentFFN=\dimen182
 \FBfnindent=\dimen183
-)) (/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count456
+)) (/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty) (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen184
+\captionmargin@=\dimen185
+\captionwidth=\dimen186
+\caption@tempdima=\dimen187
+\caption@indent=\dimen188
+\caption@parindent=\dimen189
+\caption@hangindent=\dimen190
+Package caption Info: Standard document class detected.
+Package caption Info: french babel package is loaded.
+)
+\c@caption@flags=\count456
+\c@continuedfloat=\count457
+Package caption Info: hyperref package is loaded.
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count458
 \lst@gtempboxa=\box100
 \lst@token=\toks27
-\lst@length=\count457
-\lst@currlwidth=\dimen184
-\lst@column=\count458
-\lst@pos=\count459
-\lst@lostspace=\dimen185
-\lst@width=\dimen186
-\lst@newlines=\count460
-\lst@lineno=\count461
-\lst@maxwidth=\dimen187
+\lst@length=\count459
+\lst@currlwidth=\dimen191
+\lst@column=\count460
+\lst@pos=\count461
+\lst@lostspace=\dimen192
+\lst@width=\dimen193
+\lst@newlines=\count462
+\lst@lineno=\count463
+\lst@maxwidth=\dimen194
  (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count462
-\lst@skipnumbers=\count463
+\c@lstnumber=\count464
+\lst@skipnumbers=\count465
 \lst@framebox=\box101
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
@@ -658,36 +675,36 @@ LaTeX Warning: Unused global option(s):
 (./rapport.aux)
 \openout1 = `rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count464
-\scratchdimen=\dimen188
+\scratchcounter=\count466
+\scratchdimen=\dimen195
 \scratchbox=\box102
-\nofMPsegments=\count465
-\nofMParguments=\count466
+\nofMPsegments=\count467
+\nofMParguments=\count468
 \everyMPshowfont=\toks28
-\MPscratchCnt=\count467
-\MPscratchDim=\dimen189
-\MPnumerator=\count468
-\makeMPintoPDFobject=\count469
+\MPscratchCnt=\count469
+\MPscratchDim=\dimen196
+\MPnumerator=\count470
+\makeMPintoPDFobject=\count471
 \everyMPtoPDFconversion=\toks29
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -708,8 +725,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'rapport.bbl' found.
  (./rapport.bbl)
-Package biblatex Info: Reference section=0 on input line 19.
-Package biblatex Info: Reference segment=0 on input line 19.
+Package biblatex Info: Reference section=0 on input line 20.
+Package biblatex Info: Reference segment=0 on input line 20.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -745,7 +762,7 @@ Package biblatex Info: Reference segment=0 on input line 19.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 19.
+Package hyperref Info: Link coloring OFF on input line 20.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -753,107 +770,133 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count470
+\c@section@level=\count472
 )
-LaTeX Info: Redefining \ref on input line 19.
-LaTeX Info: Redefining \pageref on input line 19.
-LaTeX Info: Redefining \nameref on input line 19.
+LaTeX Info: Redefining \ref on input line 20.
+LaTeX Info: Redefining \pageref on input line 20.
+LaTeX Info: Redefining \nameref on input line 20.
  (./rapport.out) (./rapport.out)
 \@outlinefile=\write4
 \openout4 = `rapport.out'.
 
-LaTeX Info: Redefining \degres on input line 19.
-LaTeX Info: Redefining \up on input line 19.
-\c@lstlisting=\count471
-<images/logo-tsp-fond-blanc.png, id=52, 384.43625pt x 602.25pt>
+LaTeX Info: Redefining \degres on input line 20.
+LaTeX Info: Redefining \up on input line 20.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count473
+<images/logo-tsp-fond-blanc.png, id=56, 384.43625pt x 602.25pt>
 File: images/logo-tsp-fond-blanc.png Graphic file (type png)
 <use images/logo-tsp-fond-blanc.png>
-Package pdftex.def Info: images/logo-tsp-fond-blanc.png  used on input line 25.
+Package pdftex.def Info: images/logo-tsp-fond-blanc.png  used on input line 26.
 (pdftex.def)             Requested size: 76.88588pt x 120.44786pt.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/logo-tsp-fond-blanc.png>]
-Overfull \hbox (3.97116pt too wide) in paragraph at lines 41--46
+Overfull \hbox (3.97116pt too wide) in paragraph at lines 42--47
 []\T1/cmr/m/n/10 Pour faire ceci, nous al-lons uti-li-ser le jeu de don-nées MNIST
  []
 
-<images/mnist_plot.png, id=64, 462.528pt x 346.896pt>
+<images/mnist_plot.png, id=69, 462.528pt x 346.896pt>
 File: images/mnist_plot.png Graphic file (type png)
 <use images/mnist_plot.png>
-Package pdftex.def Info: images/mnist_plot.png  used on input line 57.
+Package pdftex.def Info: images/mnist_plot.png  used on input line 58.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
-<images/short_simulation_generate_data.png, id=65, 462.528pt x 346.896pt>
+<images/short_simulation_generate_data.png, id=70, 462.528pt x 346.896pt>
 File: images/short_simulation_generate_data.png Graphic file (type png)
 <use images/short_simulation_generate_data.png>
-Package pdftex.def Info: images/short_simulation_generate_data.png  used on input line 68.
+Package pdftex.def Info: images/short_simulation_generate_data.png  used on input line 69.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/short_simulation_kmeans.png, id=66, 462.528pt x 346.896pt>
+<images/short_simulation_kmeans.png, id=71, 462.528pt x 346.896pt>
 File: images/short_simulation_kmeans.png Graphic file (type png)
 <use images/short_simulation_kmeans.png>
-Package pdftex.def Info: images/short_simulation_kmeans.png  used on input line 89.
+Package pdftex.def Info: images/short_simulation_kmeans.png  used on input line 90.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
 [2
 
  <./images/mnist_plot.png> <./images/short_simulation_generate_data.png> <./images/short_simulation_kmeans.png>]
-<images/short_simulation_kmedoids.png, id=86, 462.528pt x 346.896pt>
+<images/short_simulation_kmedoids.png, id=92, 462.528pt x 346.896pt>
 File: images/short_simulation_kmedoids.png Graphic file (type png)
 <use images/short_simulation_kmedoids.png>
-Package pdftex.def Info: images/short_simulation_kmedoids.png  used on input line 114.
+Package pdftex.def Info: images/short_simulation_kmedoids.png  used on input line 128.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
 
-Overfull \hbox (0.39056pt too wide) in paragraph at lines 120--122
+Overfull \hbox (0.39056pt too wide) in paragraph at lines 134--136
 \T1/cmr/m/n/10 mé-lange de dis-tri-bu-tions gaus-siennes. L'al-go-rithme fonc-tionne
  []
 
-<images/short_simulation_gmm.png, id=87, 578.16pt x 433.62pt>
+<images/short_simulation_gmm.png, id=93, 578.16pt x 433.62pt>
 File: images/short_simulation_gmm.png Graphic file (type png)
 <use images/short_simulation_gmm.png>
-Package pdftex.def Info: images/short_simulation_gmm.png  used on input line 132.
+Package pdftex.def Info: images/short_simulation_gmm.png  used on input line 146.
 (pdftex.def)             Requested size: 173.44933pt x 130.087pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<images/short_simulation_dbscan.png, id=88, 462.528pt x 346.896pt>
+<images/short_simulation_dbscan.png, id=94, 462.528pt x 346.896pt>
 File: images/short_simulation_dbscan.png Graphic file (type png)
 <use images/short_simulation_dbscan.png>
-Package pdftex.def Info: images/short_simulation_dbscan.png  used on input line 151.
+Package pdftex.def Info: images/short_simulation_dbscan.png  used on input line 165.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
 [3 <./images/short_simulation_kmedoids.png> <./images/short_simulation_gmm.png> <./images/short_simulation_dbscan.png>]
-<images/mnist_kmeans_ten_clusters.png, id=113, 907.7112pt x 364.2408pt>
+<images/mnist_kmeans_ten_clusters.png, id=125, 907.7112pt x 364.2408pt>
 File: images/mnist_kmeans_ten_clusters.png Graphic file (type png)
 <use images/mnist_kmeans_ten_clusters.png>
-Package pdftex.def Info: images/mnist_kmeans_ten_clusters.png  used on input line 184.
+Package pdftex.def Info: images/mnist_kmeans_ten_clusters.png  used on input line 198.
 (pdftex.def)             Requested size: 226.92725pt x 91.05997pt.
 
-Overfull \hbox (1.37952pt too wide) in paragraph at lines 192--192
+Overfull \hbox (1.37952pt too wide) in paragraph at lines 206--206
 []\T1/cmr/bx/n/10 Étude des per-for-mances en fonc-tion du nombre
  []
 
-[4
+<images/mnist_kmeans_inertia.png, id=127, 499.3857pt x 278.9622pt>
+File: images/mnist_kmeans_inertia.png Graphic file (type png)
+<use images/mnist_kmeans_inertia.png>
+Package pdftex.def Info: images/mnist_kmeans_inertia.png  used on input line 214.
+(pdftex.def)             Requested size: 199.75073pt x 111.5829pt.
+<images/mnist_kmeans_silhouette.png, id=128, 511.6716pt x 268.1217pt>
+File: images/mnist_kmeans_silhouette.png Graphic file (type png)
+<use images/mnist_kmeans_silhouette.png>
+Package pdftex.def Info: images/mnist_kmeans_silhouette.png  used on input line 249.
+(pdftex.def)             Requested size: 204.66501pt x 107.24678pt.
 
- <./images/mnist_kmeans_ten_clusters.png>] (./rapport.aux)
+Overfull \hbox (1.37952pt too wide) in paragraph at lines 259--259
+[]\T1/cmr/bx/n/10 Étude des per-for-mances en fonc-tion du nombre
+ []
+
+[4 <./images/mnist_kmeans_ten_clusters.png> <./images/mnist_kmeans_inertia.png> <./images/mnist_kmeans_silhouette.png>]
+
+Package caption Warning: \captionsetup{type*=...} or \captionof
+(caption)                outside box or environment on input line 278.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 278.
+See the caption package documentation for explanation.
+
+[5
+
+] (./rapport.aux)
 Package rerunfilecheck Info: File `rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 6E3D0F333EE1E3799240D5CED9270B7F;2026.
+(rerunfilecheck)             Checksum: 125EC1F258F579DBF83745034AA85ECE;2607.
 Package logreq Info: Writing requests to 'rapport.run.xml'.
 \openout1 = `rapport.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21914 strings out of 478287
- 378516 string characters out of 5849289
- 1136350 words of memory out of 5000000
- 39814 multiletter control sequences out of 15000+600000
+ 23173 strings out of 478287
+ 403615 string characters out of 5849289
+ 1166733 words of memory out of 5000000
+ 41053 multiletter control sequences out of 15000+600000
  479186 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,8n,68p,764b,1726s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb>
-Output written on rapport.pdf (4 pages, 441703 bytes).
+ 69i,8n,117p,764b,1726s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb>
+Output written on rapport.pdf (5 pages, 531880 bytes).
 PDF statistics:
- 169 PDF objects out of 1000 (max. 8388607)
- 129 compressed objects within 2 object streams
- 40 named destinations out of 1000 (max. 500000)
- 137 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 220 PDF objects out of 1000 (max. 8388607)
+ 165 compressed objects within 2 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 155 words of extra memory for PDF output out of 10000 (max. 10000000)
 
