@@ -1,12 +1,12 @@
 # Fdb version 3
-["biber rapport"] 1709651186 "rapport.bcf" "rapport.bbl" "rapport" 1709651190
-  "rapport.bcf" 1709651190 106593 c00b0ab198f23663f83f7621911f6727 "pdflatex"
+["biber rapport"] 1709656976 "rapport.bcf" "rapport.bbl" "rapport" 1709657418
+  "rapport.bcf" 1709657418 106593 c00b0ab198f23663f83f7621911f6727 "pdflatex"
   (generated)
   "rapport.bbl"
   "rapport.blg"
-["pdflatex"] 1709651188 "/home/smaug/MAT4102/TP1/rapport.tex" "rapport.pdf" "rapport" 1709651190
+["pdflatex"] 1709657417 "/home/smaug/MAT4102/TP1/rapport.tex" "rapport.pdf" "rapport" 1709657418
   "/etc/texmf/web2c/texmf.cnf" 1677243942 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/smaug/MAT4102/TP1/rapport.tex" 1709651186 13359 364b3f7dd5743c45e8ea8c98ded1cdd0 ""
+  "/home/smaug/MAT4102/TP1/rapport.tex" 1709657416 15995 4602e29bd7c1aba5ccc70dddeb3439cd ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -146,11 +146,11 @@
   "images/short_simulation_gmm.png" 1709639304 31100 c945ca6ac69da05e38fcd35f2c664559 ""
   "images/short_simulation_kmeans.png" 1709636748 58698 5b79d5efe3c2265be68333865adee949 ""
   "images/short_simulation_kmedoids.png" 1709636770 55448 707a4056266185ee509f5a34afa60563 ""
-  "rapport.aux" 1709651190 6268 b94084850c53296f7647f529acca7132 "pdflatex"
-  "rapport.bbl" 1709651187 0 d41d8cd98f00b204e9800998ecf8427e "biber rapport"
-  "rapport.out" 1709651190 2607 125ec1f258f579dbf83745034aa85ece "pdflatex"
-  "rapport.run.xml" 1709651190 2250 aa947b1ad212c9a6e272db1663a77a2b "pdflatex"
-  "rapport.tex" 1709651186 13359 364b3f7dd5743c45e8ea8c98ded1cdd0 ""
+  "rapport.aux" 1709657418 6790 fb9897565fbcad3ab7cb421e25cae17f "pdflatex"
+  "rapport.bbl" 1709656977 0 d41d8cd98f00b204e9800998ecf8427e "biber rapport"
+  "rapport.out" 1709657418 2607 125ec1f258f579dbf83745034aa85ece "pdflatex"
+  "rapport.run.xml" 1709657418 2250 aa947b1ad212c9a6e272db1663a77a2b "pdflatex"
+  "rapport.tex" 1709657416 15995 4602e29bd7c1aba5ccc70dddeb3439cd ""
   (generated)
   "rapport.aux"
   "rapport.bcf"

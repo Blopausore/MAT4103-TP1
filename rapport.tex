@@ -261,24 +261,81 @@ Dans ce cas, le \textbf{nombre de cluster optimal est 7}.
 \paragraph{Matrice de confusion}
 On peut aussi étudier la matrice de confusion pour chaque nombre de clusters.
 Celle ci représente pour la ligne $i$ et la colonne $j$, le nombre de point de label $i$ qui sont dans le cluster $j$.
+
+Pour le choix de 7 clusters, on obtient une matrice de taille 10x7.
+
 \[
 \begin{bmatrix}
-  812 & 14 & 1 & 4 & 61 & 71 & 38 & 0 & 0 & 0 \\
-  0 & 2 & 3 & 1109 & 4 & 9 & 0 & 0 & 0 & 0 \\
-  9 & 27 & 6 & 213 & 60 & 627 & 49 & 0 & 0 & 0 \\
-  6 & 29 & 19 & 89 & 736 & 142 & 11 & 0 & 0 & 0 \\
-  1 & 524 & 366 & 63 & 0 & 5 & 21 & 0 & 0 & 0 \\
-  13 & 63 & 124 & 236 & 368 & 33 & 26 & 0 & 0 & 0 \\
-  16 & 24 & 0 & 114 & 6 & 15 & 839 & 0 & 0 & 0 \\
-  1 & 325 & 646 & 91 & 1 & 5 & 1 & 0 & 0 & 0 \\
-  3 & 25 & 68 & 172 & 333 & 326 & 17 & 0 & 0 & 0 \\
-  5 & 437 & 477 & 38 & 17 & 2 & 2 & 0 & 0 & 0 \\
-\end{bmatrix}
-\]
+    812 & 14 & 1 & 4 & 61 & 71 & 38 \\
+    0 & 2 & 3 & 1109 & 4 & 9 & 0 \\
+    9 & 27 & 6 & 213 & 60 & 627 & 49 \\
+    6 & 29 & 19 & 89 & 736 & 142 & 11 \\
+    1 & 524 & 366 & 63 & 0 & 5 & 21 \\
+    13 & 63 & 124 & 236 & 368 & 33 & 26 \\
+    16 & 24 & 0 & 114 & 6 & 15 & 839 \\
+    1 & 325 & 646 & 91 & 1 & 5 & 1 \\
+    3 & 25 & 68 & 172 & 333 & 326 & 17 \\
+    5 & 437 & 477 & 38 & 17 & 2 & 2 \\
+    \end{bmatrix}
+\]    
 \captionof{table}{Matrice de confusion pour 7 clusters}
 
 
+\paragraph{Analyse par colonne}
+Chaque colonne représente un cluster.
 
+Une colonne possèdant des valeurs hétérogènes est un bon cluster car il permet de distinguer les différents labels.
+On remarque par exemple que la première colonne est très hétérogène, le chiffre 0 est bien représenté avec 812 itérations
+alors que le nombre de points des autres labels ne dépasse 16.
+
+On va donc venir étudier la variance de chaque colonne. 
+Cependant, on doit normaliser les valeurs pour que la variance soit comparable entre les colonnes.
+On étudie la variance normalisée par colonne car une variance élevée correspond à un cluster hétérogène et donc performant.
+
+\[
+\begin{bmatrix}
+    0.93 & 0.01 & 0.02 & 0.04 & 0.00 & 0.01 & 0.04 \\
+    0.00 & 0.00 & 0.00 & 0.00 & 0.54 & 0.00 & 0.00 \\
+    0.01 & 0.01 & 0.82 & 0.04 & 0.09 & 0.00 & 0.03 \\
+    0.01 & 0.03 & 0.06 & 0.45 & 0.04 & 0.02 & 0.01 \\
+    0.00 & 0.34 & 0.01 & 0.00 & 0.03 & 0.19 & 0.02 \\
+    0.02 & 0.04 & 0.00 & 0.21 & 0.10 & 0.09 & 0.03 \\
+    0.02 & 0.01 & 0.01 & 0.00 & 0.05 & 0.00 & 0.84 \\
+    0.00 & 0.24 & 0.01 & 0.00 & 0.04 & 0.32 & 0.00 \\
+    0.01 & 0.02 & 0.05 & 0.25 & 0.10 & 0.11 & 0.02 \\
+    0.01 & 0.29 & 0.00 & 0.01 & 0.01 & 0.25 & 0.00 \\
+\end{bmatrix}
+\]
+\captionof{table}{Matrice de confusion normalisée par colonne}
+
+\[
+\begin{bmatrix}
+    0.07749849 & 0.01621322 & 0.05849614 & 0.02084102 & 0.02251254 & 0.01238162 & 0.06155192
+\end{bmatrix}
+\]
+\captionof{table}{Variance de chaque colonne normalisée}
+
+On remarque une variance élevée pour la première colonne, ce qui est cohérent avec l'analyse précédente.
+De même pour la dernière colonne.
+À l'inverse la deuxième colonne possède une variance très faible, ce qui est cohérent en raison 
+de son homogénéité.
+
+Cependant on remarque que pour la troisième colonne, la variance est comparable avec celle du dernier cluster
+alors que l'analyse de la matrice de confusion nous montre que ce cluster est bien moins hétérogène et donc de plus faible qualité.
+
+L'analyse par la variance normalisée n'est donc pas suffisante pour déterminer la qualité des clusters mais 
+elle en donne une idée.
+
+\paragraph{Analyse par ligne}
+Chaque ligne représente un label.
+
+De la même manière, on cherche une répartition hétérogène des valeurs pour chaque ligne
+afin d'assurer une bonne représentation de chaque label.
+
+On peut procéder de la même manière que pour l'analyse par colonne. 
+Ceci nous conduirait à remarquer que les labels 0 et 1 sont bien identifiés
+par les clusters 0 et 3.
+Tandis qu'il y une confusion dans l'identification des labels 4 et 9 par les différents clusters.
 
 \subsection{K-medoids}
 
