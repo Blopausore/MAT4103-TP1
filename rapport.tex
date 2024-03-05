@@ -154,8 +154,10 @@ Résultat de l'algorithme sur le jeu de données précédent.
 
 On remarque ici que certains points ne sont pas assignés à un cluster, ce sont les points de bruit.
 
+\pagebreak
 \section{Application sur la base de données MNIST}
 \subsection{K-means}
+
 Afin de baisser le temps de calcul, on ne va étudier que les 10 000 premières images de la base de données MNIST.
 On aura donc 10 clusters contenant chacun : 
 \begin{itemize}
@@ -171,13 +173,27 @@ On aura donc 10 clusters contenant chacun :
     \item label 9 : 978 images
 \end{itemize}
 
+\subsubsection{Étude pour 10 clusters}
+
 On clusterise les images en utilisant les pixels comme features et on recherche 10 clusters.
+Cela nous permet d'avoir une première visualisation des résultats de l'algorithme pour un nombre 
+de cluster cohérent avec le problème à résoudre.
+
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.2]{images/mnist_kmeans_ten_clusters.png}
+    \includegraphics[scale=0.25]{images/mnist_kmeans_ten_clusters.png}
     \caption{Résultat de l'algorithme K-means sur la base de données MNIST}\label{fig:mnist_kmeans}
 \end{figure}
+
+On remarque ici que malgré la présence de 10 clusters, on ne retrouve pas les 10 chiffres.
+En effet, deux clusters semblent décrirent le chiffre 0 et trois autres sont flous quant à leur description des chiffres 4 et 9.
+Enfin les clusters sont très hétérogènes, ce qui est cohérent avec la diversité des écritures des chiffres.
+
+\subsubsection{Étude des performances en fonction du nombre clusters}
+
+
 \subsection{K-medoids}
+
 
 
 \end{document}
