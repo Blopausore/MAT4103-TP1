@@ -899,6 +899,11 @@ INPUT ./images/short_simulation_dbscan.png
 INPUT images/short_simulation_dbscan.png
 INPUT ./images/short_simulation_dbscan.png
 INPUT ./images/short_simulation_dbscan.png
+INPUT ./images/mnist_kmeans_ten_clusters.png
+INPUT ./images/mnist_kmeans_ten_clusters.png
+INPUT images/mnist_kmeans_ten_clusters.png
+INPUT ./images/mnist_kmeans_ten_clusters.png
+INPUT ./images/mnist_kmeans_ten_clusters.png
 INPUT rapport.aux
 INPUT ./rapport.out
 INPUT ./rapport.out

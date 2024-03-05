@@ -69,6 +69,8 @@ Pour montrer leur fonctionnement, on génère un jeu de données synthétique av
     \caption{Data généré de manière synthétique}\label{fig:short_simulation_data}
 \end{figure}
 
+On viendra dans la suite chercher à trouver 4 clusters dans ces données.
+
 \subsubsection{K-means}
 
 L'algorithme K-means est un algorithme de clustering qui cherche à partitionner les données en K clusters.
@@ -81,13 +83,17 @@ L'algorithme fonctionne de la manière suivante :
 \end{enumerate}
 
 
-On alors applique l'algorithme sur ces données pour la recherche de 4 clusters.
-On obtient alors les résultats suivants :
+On obtient les résultats suivants :
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.5]{images/short_simulation_kmeans.png}
     \caption{Résultat de l'algorithme K-means}\label{fig:short_simulation_kmeans}
 \end{figure}
+
+On remarque la fusion des deux clusters les plus proches ce qui est cohérent 
+étant données que l'on cherche 4 clusters dans un ensemble de données regroupés en 5 clusters.
+On verra que cette remarque s'appliquera à tous les algorithmes.
+
 
 \subsubsection{K-medoids}
 
@@ -150,5 +156,28 @@ On remarque ici que certains points ne sont pas assignés à un cluster, ce sont
 
 \section{Application sur la base de données MNIST}
 \subsection{K-means}
+Afin de baisser le temps de calcul, on ne va étudier que les 10 000 premières images de la base de données MNIST.
+On aura donc 10 clusters contenant chacun : 
+\begin{itemize}
+    \item label 0 : 1001 images
+    \item label 1 : 1127 images
+    \item label 2 : 991 images
+    \item label 3 : 1032 images
+    \item label 4 : 980 images
+    \item label 5 : 863 images
+    \item label 6 : 1014 images
+    \item label 7 : 1070 images
+    \item label 8 : 944 images
+    \item label 9 : 978 images
+\end{itemize}
+
+On clusterise les images en utilisant les pixels comme features et on recherche 10 clusters.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.2]{images/mnist_kmeans_ten_clusters.png}
+    \caption{Résultat de l'algorithme K-means sur la base de données MNIST}\label{fig:mnist_kmeans}
+\end{figure}
+\subsection{K-medoids}
+
 
 \end{document}
