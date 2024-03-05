@@ -77,7 +77,8 @@ On viendra dans la suite chercher à trouver 4 clusters dans ces données.
 L'algorithme K-means est un algorithme de clustering qui cherche à partitionner les données en K clusters.
 L'algorithme fonctionne de la manière suivante :
 \begin{enumerate}
-    \item Choisir K points aléatoires dans les données, qui serviront de centres de clusters.
+    \item Choisir K points aléatoires dans les données, qui serviront de centres de clusters. 
+    Ceux-ci sont appelés centroïdes.
     \item Assigner chaque point de données au centre de cluster le plus proche.
     \item Mettre à jour les centres de clusters en prenant la moyenne des points assignés à chaque cluster.
     \item Répéter les étapes 2 et 3 jusqu'à ce que les centres de clusters ne changent plus.
@@ -117,12 +118,13 @@ Cela rend K-medoids plus robuste aux valeurs aberrantes que K-means.
 L'algorithme fonctionne de la manière suivante :
 \begin{enumerate}
     \item Choisir K points aléatoires dans les données, qui serviront de centres de clusters.
+    Ceux-ci sont appelés médoïdes.
     \item Assigner chaque point de données au centre de cluster le plus proche.
     \item Mettre à jour les centres de clusters en prenant le point de données qui minimise la somme des distances aux autres points assignés à chaque cluster.
     \item Répéter les étapes 2 et 3 jusqu'à ce que les centres de clusters ne changent plus.
 \end{enumerate}
 
-On a aussi appliquer cet algorithme sur le jeu de données précédent.
+On a aussi appliqué cet algorithme sur le jeu de données précédent.
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.5]{images/short_simulation_kmedoids.png}
@@ -341,9 +343,83 @@ Tandis qu'il y une confusion dans l'identification des labels 4 et 9 par les dif
 
 
 
-\subsection{K-medoids}
+\section{Étude de K-medoids sur la base de données MNIST}
 
+On répète la même étude pour l'algorithme K-medoids. Nous travaillons, de même que pour l'algorithme K-means, 
+sur les 10 000 premières images de la base de données MNIST.
 
+On clusterise les images en utilisant les pixels comme features et on recherche 10 clusters.
+Cela nous permet d'avoir une première visualisation des résultats de l'algorithme pour un nombre 
+de cluster à priori cohérent avec le problème à résoudre.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.25]{images/mnist_kmedoids_ten_clusters.png}
+    \caption{Résultat de l'algorithme K-medoids sur la base de données MNIST}\label{fig:mnist_kmedoids}
+\end{figure}
+
+On remarque ici que malgré la présence de 10 clusters, on ne retrouve pas les 10 chiffres.
+En effet, deux clusters semblent décrirent le chiffre 0, ainsi que deux autres le chiffre 1, et enfin le 9.
+On ne retrouve pas les chiffres 3, 4 et 7.
+
+\subsubsection{Étude des performances en fonction du nombre clusters : méthode usuelle}
+
+\paragraph{Méthode du coude}
+
+Ici on a tracé l'inertie J pour un nombre de clusters allant de 2 à 20. De nouveau, il est cohérent que la fonction Inertie J 
+soit décroissante en fonction du nombre de clusters. En effet, plus on a de clusters, plus on peut réduire la distance 
+entre les points et les médoïdes. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.4]{images/mnist_kmedoids_inertia.png}
+    \caption{Fonction de coût en fonction du nombre de clusters}\label{fig:mnist_kmedoids_cost}
+\end{figure}
+
+Cependant, comme dans le cas de K-means, la courbe ne présente pas de coude net.
+Elle ne permet donc pas de déterminer clairement le nombre de clusters optimal.
+
+\paragraph{Indice de silhouette}
+
+Défini de la même façon que pour K-means, penchons nous vers \textbf{l'indice de silhouette}.
+On peut caluler la moyenne groupée par cluster de l'indice de silhouette pour chaque nombre de clusters.
+Cela nous permet d'estimer l'homogénéité et la séparation des clusters.
+
+On a tracé la moyenne de l'indice de silhouette pour un nombre de clusters allant de 2 à 12.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.4]{images/mnist_kmedoids_silhouette.png}
+    \caption{Indice de silhouette en fonction du nombre de clusters}\label{fig:mnist_kmedoids_silhouette}
+\end{figure}
+
+D'après la figure \ref{fig:mnist_kmedoids_silhouette}, on remarque que l'indice de silhouette est maximal pour 11 clusters.
+S'il s'agit du maximum de l'indice de silhouette en fonction de k, la valeur est de 0,331, ce qui n'est pas très proche de 1.
+Cela peut signifier que la séparation entre les clusters n'est pas optimale.
+Nous gardons pour le moment 10 clusters.
+
+\subsubsection{Étude des performances en fonction du nombre clusters : méthode alternative}
+
+\paragraph{Matrice de confusion}
+On peut aussi étudier la matrice de confusion pour chaque nombre de clusters.
+Celle ci représente pour la ligne $i$ et la colonne $j$, le nombre de point de label $i$ qui sont dans le cluster $j$.
+
+Pour le choix de 10 clusters, on obtient une matrice de taille 10x10.
+
+\[
+\begin{bmatrix}
+368 & 38 & 6 & 6 & 13 & 43 & 3 & 5 & 9 & 510 \\
+0 & 0 & 533 & 587 & 4 & 0 & 2 & 1 & 0 & 0 \\
+3 & 11 & 388 & 143 & 11 & 126 & 59 & 27 & 108 & 115 \\
+5 & 50 & 65 & 193 & 20 & 24 & 48 & 605 & 1 & 21 \\
+6 & 85 & 149 & 44 & 309 & 27 & 334 & 2 & 20 & 4 \\
+18 & 138 & 71 & 126 & 53 & 117 & 110 & 177 & 9 & 44 \\
+32 & 197 & 31 & 47 & 4 & 182 & 2 & 0 & 506 & 13 \\
+2 & 5 & 103 & 68 & 477 & 1 & 403 & 1 & 0 & 10 \\
+5 & 99 & 215 & 141 & 16 & 13 & 176 & 249 & 15 & 15 \\
+14 & 44 & 48 & 38 & 408 & 3 & 400 & 8 & 4 & 11 \\
+\end{bmatrix}
+\]
 
 
 \end{document}
