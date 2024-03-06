@@ -10,7 +10,7 @@
 \usepackage{multicol} % Package for multi-column layout
 \usepackage[french]{babel}
 \usepackage{caption} % for \captionof command
-
+\usepackage{adjustbox}
 \usepackage{listings}
 
 \title{Apprentissage non-supervisé}
@@ -26,8 +26,7 @@
     \includegraphics[scale=0.2]{images/logo-tsp-fond-blanc.png}
 \end{figure}
 
-\pagebreak
-
+\tableofcontents
 \twocolumn
 % Your content here
 
@@ -411,55 +410,6 @@ son entropie élevée mais étant assez distinct des autres chiffres, il est bie
     \caption{Entropie par cluster}\label{fig:mnist_kmeans_entropy}
 \end{figure}
 
-\subsection{Comparaison des résultats de méthode alternative avec un nombre différent de clusters}
-
-\subsubsection{Comparaison pour 10 clusters}
-\paragraph{Matrice de confusion}
-\[
-\begin{bmatrix}
-    1 & 14 & 2 & 26 & 1 & 185 & 49 & 1 & 720 & 2 \\
-    3 & 1 & 1106 & 1 & 2 & 0 & 2 & 1 & 0 & 11 \\
-    20 & 23 & 172 & 29 & 656 & 20 & 55 & 5 & 6 & 5 \\
-    55 & 12 & 63 & 4 & 14 & 312 & 526 & 12 & 3 & 31 \\
-    1 & 391 & 41 & 18 & 3 & 0 & 1 & 281 & 0 & 244 \\
-    69 & 23 & 186 & 16 & 1 & 204 & 237 & 49 & 8 & 70 \\
-    1 & 100 & 90 & 781 & 7 & 18 & 5 & 0 & 12 & 0 \\
-    3 & 98 & 60 & 0 & 4 & 2 & 2 & 447 & 1 & 453 \\
-    525 & 21 & 100 & 17 & 7 & 22 & 199 & 24 & 3 & 26 \\
-    4 & 242 & 18 & 3 & 0 & 0 & 16 & 298 & 6 & 391 \\
-\end{bmatrix}
-\]
-\captionof{table}{Matrice de confusion pour 10 clusters}
-
-On obtient une variance normalisée semblable à celle obtenue pour 7 clusters.
-
-\[
-\begin{pmatrix}
-    0.051 & 0.017 & 0.029 & 0.066 & 0.079 & 0.02 & 0.022 & 0.02 & 0.08 & 0.018
-\end{pmatrix}
-\]
-\captionof{table}{Variance de chaque colonne normalisée}
-
-Encore une fois l'homogénéité des clusters est diversifiée.
-On retrouve des variances parfois élevées signe d'hétérogénéité et parfois faibles signe d'homogénéité.
-
-\paragraph{Attribution de Labels Dominants aux Clusters}
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[scale=0.2]{images/mnist_kmeans_inferred_labels_ten_clusters.png}
-    \caption{Attribution de Labels Dominants aux Clusters}\label{fig:mnist_kmeans_labels_ten}
-\end{figure}
-
-On retrouve comme avant de la confusion pour certains labels comme celui du 3 et du 8 ainsi que 4, 7 et 9
-comme lorsque l'on avait 7 clusters.
-
-
-
-
-
-
-
 \subsubsection{Exploitation des outils pour l'analyse du nombre de clusters}
 
 On a calculé le taux de bon fonctionnement de l'algorithme KMeans pour un nombre de clusters allant de 2 à 15.
@@ -471,7 +421,341 @@ On a calculé le taux de bon fonctionnement de l'algorithme KMeans pour un nombr
 \end{figure}
 On remarque que le taux de bon fonctionnement en fonction du nombre de cluster est croissant.
 
+\subsection{Comparaison des résultats de méthode alternative avec un nombre différent de clusters}
+
+On va maintenant comparer les résultats obtenus avec 8, 10 et 12 clusters.
+On initilisera au même point de départ pour chaque nombre de clusters afin de mieux comparer les résultats.
+
+\subsubsection{Matrice de confusion}
+On va venir s'intéresser à la matrice de confusion pour chaque nombre de clusters. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.5]{images/mnist_kmeans_normalized_confusion_matrix_comparaison.png}
+    \caption{Matrice de confusion pour 8 clusters}\label{fig:mnist_kmeans_confusion_comparaison}
+\end{figure}
+
+On remarque une nette augmentation de la fréquence d'éléments des matrices ayant peu d'iterations.
+Cela est un signe de qualité des clusters car on veut que les valeurs soient très hétérogènes 
+et concentré sur les extremums.
+Á travers les vecteurs de variances normalisées par colonne, on pourra comparer la qualité des clusters.
+
+On a obtenus une moyenne de variance normalisée par colonne de \textbf{0.0274} pour 8 clusters, \textbf{0.0379} pour 10 clusters et \textbf{0.0371} pour 12 clusters.
+
+On remarque une augmentation de la variance normalisée avec l'augmentation du nombre de clusters.
+
+\subsubsection{Analyse par métrique d'entropie}
+
+On a calculé l'entropie pour chaque cluster pour chaque nombre de clusters.
 
 
+\begin{table}[htbp]
+    \centering
+    \label{tab:entropies}
+    \small % Utilisation d'une taille de police plus petite
+    \adjustbox{max width=0.5\textwidth}{
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    $k$ & Entropies & Moyenne & Variance \\
+    \hline
+    8 & $6.783 \quad 7.054 \quad 7.120 \quad 6.906 \quad 7.204 \quad 7.519 \quad 6.869 \quad 7.363$ & 7.102 & 0.056 \\
+    \hline
+    10 & $6.713 \quad 6.946 \quad 7.088 \quad 6.854 \quad 6.593 \quad 7.039 \quad 7.195 \quad 6.592 \quad 6.784 \quad 7.070$ & 6.887 & 0.041 \\
+    \hline
+    12 & $6.284 \quad 6.873 \quad 7.076 \quad 6.819 \quad 6.560 \quad 6.818 \quad 6.698 \quad 6.553 \quad 6.693 \quad 7.041 \quad 6.777 \quad 6.091$ & 6.690 & 0.075 \\
+    \hline
+    \end{tabular}
+    }
+    \caption{Entropies pour différentes valeurs de $k$}
+\end{table}
+
+On remarque une baisse de l'entropie moyenne avec l'augmentation du nombre de clusters.
+Par nature de l'entropie, ce résultat est cohérent.
+
+\subsection{Conclusion}
+
+On a pu étudier les performances de l'algorithme KMeans sur la base de données MNIST à travers
+différentes métriques: la matrice de confusion, la variance normalisée par colonne, l'entropie et le taux de bon fonctionnement.
+Ces métriques ont permis de noter les performances de l'algorithme pour différents nombres de clusters.
+Et on a pu comparer ces métriques pour un nombre de cluster différent.
+
+Enfin on remarque que l'entrainement de l'algorithme KMeans sur la base de données MNIST n'est pas très performant.
+En effet, les clusters obtenus ne sont pas très hétérogènes et ne permettent pas de bien distinguer les différents chiffres
+car la distinction n'est pas claire.
+
+
+\section{Étude de K-medoids sur la base de données MNIST}
+
+On répète la même étude pour l'algorithme K-medoids. Nous travaillons, de même que pour l'algorithme K-means, 
+sur les 10 000 premières images de la base de données MNIST.
+
+On clusterise les images en utilisant les pixels comme features et on recherche 10 clusters.
+Cela nous permet d'avoir une première visualisation des résultats de l'algorithme pour un nombre 
+de cluster à priori cohérent avec le problème à résoudre.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.25]{images/mnist_kmedoids_ten_clusters.png}
+    \caption{Résultat de l'algorithme K-medoids sur la base de données MNIST}\label{fig:mnist_kmedoids}
+\end{figure}
+
+On remarque ici que malgré la présence de 10 clusters, on ne retrouve pas les 10 chiffres.
+En effet, deux clusters semblent décrirent le chiffre 9, ainsi que deux autres le chiffre 0.
+On ne retrouve pas les chiffres 4 et 5.
+
+\subsection{Étude des performances en fonction du nombre clusters : méthode usuelle}
+
+\paragraph{Méthode du coude}
+
+Ici on a tracé l'inertie J pour un nombre de clusters allant de 2 à 20. De nouveau, il est cohérent que la fonction Inertie J 
+soit décroissante en fonction du nombre de clusters. En effet, plus on a de clusters, plus on peut réduire la distance 
+entre les points et les médoïdes, et ainsi faire diminuer la valeur de la fonction de coût, lorsqu'on augmente le nombre de clusters. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.4]{images/mnist_kmedoids_inertia.png}
+    \caption{Fonction de coût en fonction du nombre de clusters}\label{fig:mnist_kmedoids_cost}
+\end{figure}
+
+Cependant, comme dans le cas de K-means, la courbe ne présente pas de coude net.
+Elle ne permet donc pas de déterminer clairement le nombre de clusters optimal.
+
+\paragraph{Indice de silhouette}
+
+Défini de la même façon que pour K-means, penchons nous vers \textbf{l'indice de silhouette}.
+On peut caluler la moyenne groupée par cluster de l'indice de silhouette pour chaque nombre de clusters.
+Cela nous permet d'estimer l'homogénéité et la séparation des clusters.
+
+On a tracé la moyenne de l'indice de silhouette pour un nombre de clusters allant de 2 à 12.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.4]{images/mnist_kmedoids_silhouette.png}
+    \caption{Indice de silhouette en fonction du nombre de clusters}\label{fig:mnist_kmedoids_silhouette}
+\end{figure}
+
+D'après la figure \ref{fig:mnist_kmedoids_silhouette}, on remarque que \textbf{l'indice de silhouette est maximal pour 11 clusters}.
+S'il s'agit du maximum de l'indice de silhouette en fonction de k, la valeur est de 0,331, ce qui n'est pas très proche de 1.
+Cela peut signifier que la séparation entre les clusters n'est pas optimale.
+Si l'on compare les indices de silhouette de K-means et K-medoids, on remarque qu'il est nettement plus aisé de choisir le nombre de clusters pour K-means.
+En effet, pour K-means, l'indice de silhouette est maximal pour 7 clusters, pour une valeur d'environ 0,75, alors que pour K-medoids, il est maximal pour 11 clusters pour une valeur de 0,331.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.4]{images/mnist_comparison_silhouette.png}
+    \caption{Indice de silhouette en fonction du nombre de clusters pour K-means et K-medoides}\label{fig:mnist_comparison_silhouette}
+\end{figure}
+
+Nous gardons pour le moment 10 clusters.
+
+\subsection{Étude des performances en fonction du nombre clusters : méthode alternative}
+
+Ici, nous procédons à l'analyse de la matrice de confusion pour certains des nombres de clusters.
+
+
+\paragraph{Matrice de confusion pour 10 clusters}
+On peut aussi étudier la matrice de confusion pour chaque nombre de clusters.
+Celle ci représente pour la ligne $i$ et la colonne $j$, le nombre de point de label $i$ qui sont dans le cluster $j$.
+
+Dans ce paragraphe, nous comparerons les matrices de confusion dans le cas de 8, 10 et 11 clusters, valeurs maximales de l'indice de silhouette.
+
+Pour le choix de 10 clusters, on obtient une matrice de taille 10x10.
+
+\[
+\begin{bmatrix}
+368 & 38 & 6 & 6 & 13 & 43 & 3 & 5 & 9 & 510 \\
+0 & 0 & 533 & 587 & 4 & 0 & 2 & 1 & 0 & 0 \\
+3 & 11 & 388 & 143 & 11 & 126 & 59 & 27 & 108 & 115 \\
+5 & 50 & 65 & 193 & 20 & 24 & 48 & 605 & 1 & 21 \\
+6 & 85 & 149 & 44 & 309 & 27 & 334 & 2 & 20 & 4 \\
+18 & 138 & 71 & 126 & 53 & 117 & 110 & 177 & 9 & 44 \\
+32 & 197 & 31 & 47 & 4 & 182 & 2 & 0 & 506 & 13 \\
+2 & 5 & 103 & 68 & 477 & 1 & 403 & 1 & 0 & 10 \\
+5 & 99 & 215 & 141 & 16 & 13 & 176 & 249 & 15 & 15 \\
+14 & 44 & 48 & 38 & 408 & 3 & 400 & 8 & 4 & 11 \\
+\end{bmatrix}
+\]
+\captionof{table}{Matrice de confusion pour 10 clusters}
+
+\paragraph{Analyse par colonne}
+Chaque colonne représente un cluster.
+
+En raisonnant de la même façon que pour K-means, on remarque que la première colonne est très hétérogène, 
+ce qui signifie que dans ce cluster, le chiffre 0 est bien représenté avec 368 itérations, alors que le nombre 
+de points des autres labels ne dépasse 32.
+A l'inverse, la deuxième colonne possède une variance très faible, ce qui est cohérent en raison de son homogénéité.
+Il est donc cohérent de dire que la première colonne relève d'un bon cluster, tandis que la deuxième non.
+
+\paragraph{Analyse par ligne}
+Chaque ligne représente un label.
+
+De la même manière, on cherche une répartition hétérogène des valeurs pour chaque ligne.
+Remarquons par exemple que le label 3 est bien représenté par le 8e cluster, tandis que le label 1 est bien représenté par les 3e et 4e clusters, 
+ce qui peut mener à des confusions.
+Les autres lignes (et donc labels) de la matrice de confusion dans le cas de 10 clusters sont plutôt homogènes, et donc difficiles à identifier.
+
+
+\paragraph{Matrice de confusion pour 11 clusters}
+
+\[
+\begin{smallmatrix}
+11 & 22 & 60 & 16 & 6 & 766 & 4 & 5 & 4 & 92 & 15 \\
+2 & 509 & 9 & 1 & 16 & 0 & 0 & 1 & 589 & 0 & 0 \\
+449 & 111 & 20 & 19 & 90 & 29 & 38 & 20 & 171 & 0 & 44 \\
+138 & 104 & 324 & 82 & 11 & 31 & 28 & 10 & 60 & 239 & 5 \\
+2 & 32 & 45 & 206 & 233 & 1 & 386 & 29 & 25 & 5 & 16 \\
+1 & 110 & 255 & 58 & 128 & 22 & 61 & 5 & 35 & 177 & 11 \\
+8 & 79 & 120 & 3 & 62 & 17 & 16 & 6 & 46 & 11 & 646 \\
+0 & 72 & 46 & 63 & 63 & 1 & 161 & 600 & 59 & 3 & 2 \\
+71 & 92 & 172 & 195 & 101 & 3 & 52 & 8 & 137 & 103 & 10 \\
+0 & 24 & 21 & 374 & 79 & 11 & 387 & 50 & 15 & 15 & 2 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\end{smallmatrix}
+\]
+
+\captionof{table}{Matrice de confusion pour 11 clusters}
+
+
+En effectuant une analyse par colonnes, on peut voir qu'à priori les colonnes 1, 8, 10 et 11 sont relativement hétérogènes, et donc à priori les clusters sont de bonne qualité.
+En procédant par ligne, nous remarquons que les labels ne sont pas particulièrement bien identifiés. Ceci paraît étonnant dans la mesure où à priori 11 clusters est le nombre optimal, et donc le résultat, montré par la matrice de confusion, devrait être meilleur que dans le cas de 10 clusters, ce qui n'est pas nécessairement le cas.
+
+
+\paragraph{Matrice de confusion pour 8 clusters}
+
+\[
+\begin{bmatrix}
+22 & 17 & 2 & 453 & 33 & 436 & 37 & 1 \\
+3 & 6 & 1110 & 0 & 6 & 0 & 2 & 0 \\
+65 & 45 & 369 & 1 & 8 & 33 & 49 & 421 \\
+689 & 58 & 102 & 2 & 119 & 42 & 10 & 10 \\
+7 & 523 & 87 & 0 & 4 & 7 & 350 & 2 \\
+174 & 109 & 193 & 7 & 330 & 15 & 33 & 2 \\
+11 & 178 & 260 & 48 & 117 & 263 & 115 & 22 \\
+9 & 756 & 149 & 0 & 2 & 22 & 131 & 1 \\
+236 & 247 & 279 & 3 & 116 & 26 & 23 & 14 \\
+34 & 688 & 54 & 3 & 18 & 3 & 176 & 2 \\
+\end{bmatrix}
+\]
+\captionof{table}{Matrice de confusion pour 8 clusters}
+
+Les colonnes 4 et 8 sont très hétérogènes et donc témoignent de la qualité des deux clusters y correspondant.
+Le label 1 est également extrêmement bien identifié. Le label 9, lui aussi, est très bien représenté.
+Le reste des colonnes et lignes sont relativement homogènes.
+
+
+\subsection{Comparaison de la précision du clustering}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.4]{images/mnist_comparison_accuracy.png}
+    \caption{Précision du clustering en fonction du nombre de clusters pour K-means et K-medoides}\label{fig:mnist_comparison_accuracy}
+\end{figure}
+
+D'après la figure \ref{fig:mnist_comparison_accuracy}, nous remarquons que la précision du clustering avec la méthode K-means croît plus vite que K-medoïdes. Il semble aussi que la précision du clustering avec K-medoïdes converge vers un pourcentage plus bas que K-means. Néanmoins, on peut remarquer que dans les deux cas, à partir de 8 clusters, \textbf{la précision du clustering avec ces méthodes avoisine voire dépasse les 50\%} ce qui atteste de la qualité de ces méthodes dans notre cas.
+
+\subsection{Comparaison du temps de calcul des deux algorithmes K-means et K-medoids}
+
+Nous avons comparé le temps de calcul des deux algorithmes K-means et K-medoids pour la base de données MNIST, à l'aide de la librairie Time.
+
+Dans le cas de K-means, la mise en place de l'algorithme ainsi que l'apprentissage non supervisé prend 0,563 secondes à se faire. Dans le cas de K-Medoids, les mêmes opérations prennent 3,890 secondes à se faire.
+
+Ce résultat était attendu étant donné que si K-médoïdes est censé être plus robuste à priori aux valeurs absurdes, il est plus coûteux en calcul et donc prend plus de temps à tourner.
+
+
+\section{Étude du Modèle à Mélange de Gaussiennes}
+\subsection{Présentation du modèle}
+Pour cette étude, nous travaillons sur un set de données "isotropic Gaussian blobs for clustering". Ceci signifie que les points de données sont générés suivent une distribution gaussienne isotropique, comme montré en figure \ref{fig:gmm_generate_data}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.4]{images/gmm_generate_data.png}
+    \caption{}\label{fig:gmm_generate_data}
+\end{figure}
+
+5 centres ont été choisis dans notre cas, et se retrouveront donc centres de chacun des 5 clusters déterminés par une distribution gaussienne. Ceux-ci sont repérables en rouge sur la figure \ref{fig:gmm_centers}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.4]{images/gmm_centers.png}
+    \caption{}\label{fig:gmm_centers}
+\end{figure}
+
+Nous pouvons repérer chaque cluster et ses centres, comme affiché en figure \ref{fig:gmm_clusters_centers}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.4]{images/gmm_clusters_centers.png}
+    \caption{}\label{fig:gmm_clusters_centers}
+\end{figure}
+
+\subsection{Analyse du clustering par GMM avec Calinski-Harabasz}
+
+Le score de Calinski-Harabasz peut être une solution pour trouver le nombre optimal de clusters.
+
+La figure \ref{fig:gmm_ch_score} permet de déterminer le nombre optimal de clusters pour la méthode du modèle à mélange de gaussiennes.
+Le score de Calinski-Harabasz doit se trouver dans une plage de 0 à l'infini, 0 correspondant à une mauvaise classification.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.4]{images/calinski_harabasz_scores_gmm.png}
+    \caption{}\label{fig:gmm_ch_score}
+\end{figure}
+
+Nous cherchons à garder le nombre de clusters correspondant à un score maximal. En l'occurence, \textbf{le nombre optimal de clusters est de 4}.
+
+\section{Limitations de KMeans: DBSCAN}
+
+On a vu que l'algorithme KMeans n'était pas très performant pour la base de données MNIST.
+De plus, clusterisé sous forme de cercle n'est pas toujours adapté pour des données de forme complexe.
+On va donc le comparer à l'algorithme DBSCAN pour un ensemble de données représentant en forme de lune.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.5]{images/moon_dbscan.png}
+    \caption{Résultat des clusterings par KMeans et DBSCAN}\label{fig:dbscan_moon}
+\end{figure}
+
+Ici on repère la clusterisation faite par KMeans en fonction de la transparence des points et par la couleur pour DBSCAN. 
+On remarque ici que les clusters obtenus sont très différents. 
+KMeans clusterise en forme de cercle tandis que DBSCAN clusterise par proximité et arrive à bien distinguer les deux lunes.
+
+\section{KMeans pour la segmentation d'images}
+
+On va maintenant utiliser l'algorithme KMeans pour segmenter une image en 3 couleurs,
+c'est à dire qu'on va chercher à regrouper les pixels de l'image en 3 clusters.
+Cela va nous permettre de réduire le nombre de couleurs de l'image.
+
+Pour cela on va travailler sur une image de chien sur laquelle on va clusteriser
+les pixels en 2.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.2]{images/dog_compressed.png}
+    \caption{Image de chien}\label{fig:dog}
+\end{figure}
+
+
+KMeans a bien réussi à segmenter l'image en deux couleurs. On distingue encore clairement le chien du fond.
+
+On réitère l'opération pour différents nombres de clusters.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.2]{images/dog_segmented_comparaison.png}
+    \caption{Segmentation pour différent nombre de clusters}\label{fig:dog_kmeans}
+\end{figure}
+
+On remarque que l'image devient de plus en plus nette avec l'augmentation du nombre de clusters.
+Cela est cohérent car on cherche à réduire le nombre de couleurs de l'image.
+On a donc pu voir que l'algorithme KMeans est bien adapté pour la segmentation d'images.
+
+\section{Conclusion}
+
+On a étudié les performances de l'algorithme KMeans et KMédoids sur la base de données MNIST 
+à travers différentes métriques: la matrice de confusion, la variance normalisée par colonne, l'entropie et le taux de bon fonctionnement.
+Ces métriques ont permis de noter les performances de l'algorithme pour différents nombres de clusters.
+Nous avons également pu analyser le modèle à mélange de gaussiennes pour un set de données généré suivant une distribution gaussienne isotropique.
+Enfin, nous avons comparé les performances de KMeans et DBSCAN pour le clustering de données de forme complexe, et nous avons utilisé KMeans pour la segmentation d'images.
+
+En somme, nous avons pu voir que KMeans est un algorithme performant pour la segmentation d'images, mais qu'il n'est pas adapté pour des données de forme complexe.
 
 \end{document}
