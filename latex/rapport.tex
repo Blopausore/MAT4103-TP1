@@ -23,7 +23,7 @@
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.2]{images/logo-tsp-fond-blanc.png}
+    \includegraphics[scale=0.2]{../images/logo-tsp-fond-blanc.png}
 \end{figure}
 
 \tableofcontents
@@ -54,7 +54,7 @@ Il y a 60 000 images dans l'ensemble d'entraînement et 10 000 images dans l'ens
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.5]{images/mnist_plot.png}
+    \includegraphics[scale=0.5]{../images/mnist_plot.png}
     \caption{Exemple de chiffres de la base de données MNIST}\label{fig:mnist}
 \end{figure}
 
@@ -65,7 +65,7 @@ On peut déjà remarqué ici la grande diversité des écritures des chiffres, c
 Pour montrer leur fonctionnement, on génère un jeu de données synthétique avec 300 points regroupés dans 5 clusters avec une variance de 0.8.
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.5]{images/short_simulation_generate_data.png}
+    \includegraphics[scale=0.5]{../images/short_simulation_generate_data.png}
     \caption{Data généré de manière synthétique}\label{fig:short_simulation_data}
 \end{figure}
 
@@ -86,7 +86,7 @@ L'algorithme fonctionne de la manière suivante :
 On obtient les résultats suivants :
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.5]{images/short_simulation_kmeans.png}
+    \includegraphics[scale=0.5]{../images/short_simulation_kmeans.png}
     \caption{Résultat de l'algorithme K-means}\label{fig:short_simulation_kmeans}
 \end{figure}
 
@@ -124,7 +124,7 @@ L'algorithme fonctionne de la manière suivante :
 On a aussi appliquer cet algorithme sur le jeu de données précédent.
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.5]{images/short_simulation_kmedoids.png}
+    \includegraphics[scale=0.5]{../images/short_simulation_kmedoids.png}
     \caption{Résultat de l'algorithme K-medoids}\label{fig:short_simulation_kmedoids}
 \end{figure}
 
@@ -142,7 +142,7 @@ L'algorithme fonctionne de la manière suivante :
 Résultat de l'algorithme sur le jeu de données précédent.
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.3]{images/short_simulation_gmm.png}
+    \includegraphics[scale=0.3]{../images/short_simulation_gmm.png}
     \caption{Résultat de l'algorithme Modèle à Mélange de Gaussiennes}\label{fig:short_simulation_gmm}
 \end{figure}
 
@@ -161,7 +161,7 @@ On a appliqué cet algorithme sur le jeu de données précédent avec une valeur
 Résultat de l'algorithme sur le jeu de données précédent.
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.5]{images/short_simulation_dbscan.png}
+    \includegraphics[scale=0.5]{../images/short_simulation_dbscan.png}
     \caption{Résultat de l'algorithme DBSCAN}\label{fig:short_simulation_dbscan}
 \end{figure}
 
@@ -194,7 +194,7 @@ de cluster cohérent avec le problème à résoudre.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.25]{images/mnist_kmeans_ten_clusters.png}
+    \includegraphics[scale=0.25]{../images/mnist_kmeans_ten_clusters.png}
     \caption{Résultat de l'algorithme K-means sur la base de données MNIST}\label{fig:mnist_kmeans}
 \end{figure}
 
@@ -210,7 +210,7 @@ Ici on a tracé la fonction de coût pour un nombre de clusters allant de 2 à 2
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/mnist_kmeans_inertia.png}
+    \includegraphics[scale=0.4]{../images/mnist_kmeans_inertia.png}
     \caption{Fonction de coût en fonction du nombre de clusters}\label{fig:mnist_kmeans_cost}
 \end{figure}
 
@@ -245,7 +245,7 @@ On a tracé la moyenne de l'indice de silhouette pour un nombre de clusters alla
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/mnist_kmeans_silhouette.png}
+    \includegraphics[scale=0.4]{../images/mnist_kmeans_silhouette.png}
     \caption{Indice de silhouette en fonction du nombre de clusters}\label{fig:mnist_kmeans_silhouette}
 \end{figure}
 
@@ -358,7 +358,7 @@ On a ensuite comparé ces étiquettes avec les étiquettes réelles des données
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.2]{images/mnist_kmeans_inferred_labels.png}
+    \includegraphics[scale=0.2]{../images/mnist_kmeans_inferred_labels.png}
     \caption{Attribution de Labels Dominants aux Clusters}\label{fig:mnist_kmeans_labels}
 \end{figure}
 
@@ -385,7 +385,7 @@ et en effet on remarque sur la figure \ref{fig:mnist_kmeans_labels} que les chif
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.3]{images/mnist_kmeans_low_entropy_cluster.png}
+    \includegraphics[scale=0.3]{../images/mnist_kmeans_low_entropy_cluster.png}
     \caption{Entropie par cluster}\label{fig:mnist_kmeans_entropy}
 \end{figure}
 
@@ -396,7 +396,7 @@ avec l'analyse de l'attribution des labels dominants dans laquel on remarquer un
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.3]{images/mnist_kmeans_confusion_high_entropy_cluster.png}
+    \includegraphics[scale=0.3]{../images/mnist_kmeans_confusion_high_entropy_cluster.png}
     \caption{Entropie par cluster}\label{fig:mnist_kmeans_entropy}
 \end{figure}
 
@@ -406,7 +406,7 @@ son entropie élevée mais étant assez distinct des autres chiffres, il est bie
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.3]{images/mnist_kmeans_high_entropy_cluster.png}
+    \includegraphics[scale=0.3]{../images/mnist_kmeans_high_entropy_cluster.png}
     \caption{Entropie par cluster}\label{fig:mnist_kmeans_entropy}
 \end{figure}
 
@@ -416,7 +416,7 @@ On a calculé le taux de bon fonctionnement de l'algorithme KMeans pour un nombr
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/mnist_kmeans_good_distribution.png}
+    \includegraphics[scale=0.4]{../images/mnist_kmeans_good_distribution.png}
     \caption{Taux de bon fonctionnement de l'algorithme KMeans}\label{fig:mnist_kmeans_score}
 \end{figure}
 On remarque que le taux de bon fonctionnement en fonction du nombre de cluster est croissant.
@@ -431,7 +431,7 @@ On va venir s'intéresser à la matrice de confusion pour chaque nombre de clust
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.5]{images/mnist_kmeans_normalized_confusion_matrix_comparaison.png}
+    \includegraphics[scale=0.5]{../images/mnist_kmeans_normalized_confusion_matrix_comparaison.png}
     \caption{Matrice de confusion pour 8 clusters}\label{fig:mnist_kmeans_confusion_comparaison}
 \end{figure}
 
@@ -495,7 +495,7 @@ de cluster à priori cohérent avec le problème à résoudre.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.25]{images/mnist_kmedoids_ten_clusters.png}
+    \includegraphics[scale=0.25]{../images/mnist_kmedoids_ten_clusters.png}
     \caption{Résultat de l'algorithme K-medoids sur la base de données MNIST}\label{fig:mnist_kmedoids}
 \end{figure}
 
@@ -513,7 +513,7 @@ entre les points et les médoïdes, et ainsi faire diminuer la valeur de la fonc
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/mnist_kmedoids_inertia.png}
+    \includegraphics[scale=0.4]{../images/mnist_kmedoids_inertia.png}
     \caption{Fonction de coût en fonction du nombre de clusters}\label{fig:mnist_kmedoids_cost}
 \end{figure}
 
@@ -530,7 +530,7 @@ On a tracé la moyenne de l'indice de silhouette pour un nombre de clusters alla
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/mnist_kmedoids_silhouette.png}
+    \includegraphics[scale=0.4]{../images/mnist_kmedoids_silhouette.png}
     \caption{Indice de silhouette en fonction du nombre de clusters}\label{fig:mnist_kmedoids_silhouette}
 \end{figure}
 
@@ -542,7 +542,7 @@ En effet, pour K-means, l'indice de silhouette est maximal pour 7 clusters, pour
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/mnist_comparison_silhouette.png}
+    \includegraphics[scale=0.4]{../images/mnist_comparison_silhouette.png}
     \caption{Indice de silhouette en fonction du nombre de clusters pour K-means et K-medoides}\label{fig:mnist_comparison_silhouette}
 \end{figure}
 
@@ -647,7 +647,7 @@ Le reste des colonnes et lignes sont relativement homogènes.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/mnist_comparison_accuracy.png}
+    \includegraphics[scale=0.4]{../images/mnist_comparison_accuracy.png}
     \caption{Précision du clustering en fonction du nombre de clusters pour K-means et K-medoides}\label{fig:mnist_comparison_accuracy}
 \end{figure}
 
@@ -668,7 +668,7 @@ Pour cette étude, nous travaillons sur un set de données "isotropic Gaussian b
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/gmm_generate_data.png}
+    \includegraphics[scale=0.4]{../images/gmm_generate_data.png}
     \caption{}\label{fig:gmm_generate_data}
 \end{figure}
 
@@ -676,7 +676,7 @@ Pour cette étude, nous travaillons sur un set de données "isotropic Gaussian b
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/gmm_centers.png}
+    \includegraphics[scale=0.4]{../images/gmm_centers.png}
     \caption{}\label{fig:gmm_centers}
 \end{figure}
 
@@ -684,7 +684,7 @@ Nous pouvons repérer chaque cluster et ses centres, comme affiché en figure \r
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/gmm_clusters_centers.png}
+    \includegraphics[scale=0.4]{../images/gmm_clusters_centers.png}
     \caption{}\label{fig:gmm_clusters_centers}
 \end{figure}
 
@@ -697,7 +697,7 @@ Le score de Calinski-Harabasz doit se trouver dans une plage de 0 à l'infini, 0
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{images/calinski_harabasz_scores_gmm.png}
+    \includegraphics[scale=0.4]{../images/calinski_harabasz_scores_gmm.png}
     \caption{}\label{fig:gmm_ch_score}
 \end{figure}
 
@@ -711,7 +711,7 @@ On va donc le comparer à l'algorithme DBSCAN pour un ensemble de données repr�
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.5]{images/moon_dbscan.png}
+    \includegraphics[scale=0.5]{../images/moon_dbscan.png}
     \caption{Résultat des clusterings par KMeans et DBSCAN}\label{fig:dbscan_moon}
 \end{figure}
 
@@ -729,7 +729,7 @@ Pour cela on va travailler sur une image de chien sur laquelle on va clusteriser
 les pixels en 2.
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.2]{images/dog_compressed.png}
+    \includegraphics[scale=0.2]{../images/dog_compressed.png}
     \caption{Image de chien}\label{fig:dog}
 \end{figure}
 
@@ -740,7 +740,7 @@ On réitère l'opération pour différents nombres de clusters.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.2]{images/dog_segmented_comparaison.png}
+    \includegraphics[scale=0.2]{../images/dog_segmented_comparaison.png}
     \caption{Segmentation pour différent nombre de clusters}\label{fig:dog_kmeans}
 \end{figure}
 
